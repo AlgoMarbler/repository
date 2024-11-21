@@ -19,20 +19,24 @@
 	</style>
 </head>
 <body>
-	dedicated to jules pan (maybe). <br>
-	<br>
+	dedicated to jules pan (maybe). <br><br>
 	find the correct button for a treat. <br>
 	<button id="initButton">get da buttons - one of them will do something. you may need to press this more than once to generate the correct button.</button>
 	<div id="buttonContainer"></div>
-
 	<script>
 		let counter = 1;
 
 		document.getElementById("initButton").addEventListener("click", () => {
 			// Generate new buttons starting from the next number
-			for (let i = 0; i <1e4; i++) {
+			for (let i = 0; i < 1e4; i++) {
 				const button = document.createElement("button");
 				button.textContent = counter;
+
+				// Add the popup functionality to each button
+				button.addEventListener("click", () => {
+					alert("wrong button! try again");
+				});
+
 				document.getElementById("buttonContainer").appendChild(button);
 				counter++;
 			}
