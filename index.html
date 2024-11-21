@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Button Generator</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			margin-top: 20px;
+		}
+		button {
+			padding: 10px 20px;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	dedicated to jules pan (maybe). <br>
+	<br>
+	find the correct button for a treat. <br>
+	<button id="initButton">get da buttons - one of them will do something. you may need to press this more than once to generate the correct button.</button>
+	<div id="buttonContainer"></div>
+
+	<script>
+		let counter = 1;
+
+		document.getElementById("initButton").addEventListener("click", () => {
+			// Generate new buttons starting from the next number
+			for (let i = 0; i <1e4; i++) {
+				const button = document.createElement("button");
+				button.textContent = counter;
+				document.getElementById("buttonContainer").appendChild(button);
+				counter++;
+			}
+		});
+	</script>
+</body>
+</html>
